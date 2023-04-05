@@ -1,0 +1,17 @@
+.likeBtn {
+    height: 2em;
+    width: 2em;
+}
+
+.likeSection {
+    display: flex;
+    align-items: center;
+
+}
+
+.closeBtn {
+    position: relative;
+    left: 80px;
+    top: -140px;
+    border-radius: 50%;
+}
