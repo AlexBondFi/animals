@@ -45,9 +45,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='main'>
         <Header anything={this.state.anything} />
-        <Animals data={this.state.animals} likesHandler={this.likesHandler} removeHandler={this.removeHandler} searchHandler={this.searchHandler} searchInput={this.state.searchInput} />
+        <Animals
+          data={this.state.animals}
+          likesHandler={this.likesHandler}
+          removeHandler={this.removeHandler}
+          searchHandler={this.searchHandler}
+          searchInput={this.state.searchInput} />
       </div>
     )
   }

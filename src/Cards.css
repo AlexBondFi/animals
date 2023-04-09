@@ -1,17 +1,42 @@
 .likeBtn {
-    height: 2em;
-    width: 2em;
+    height: 3rem;
+    width: 3rem;
+    border-style: none;
+    background: none
 }
 
 .likeSection {
     display: flex;
     align-items: center;
-
+    justify-content: center;
 }
 
 .closeBtn {
     position: relative;
-    left: 80px;
-    top: -140px;
+    left: 199px;
+    bottom: 215px;
+    border-style: none;
     border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    background-color: lightpink;
+}
+
+.closeBtn:hover {
+    background-color: black;
+    color: red;
+}
+
+h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.image {
+    margin: 1em 1em 0 1em;
+    filter: sepia(30);
+}
+
+.image:hover {
+    filter: none;
 }

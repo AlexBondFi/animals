@@ -10,9 +10,9 @@ const Cards = (props) => {
             <button onClick={props.removeCard} className="closeBtn">X</button>
             <h2>{props.name}</h2>
             <div className="likeSection">
-                <button onClick={props.removeLikes} className='likeBtn' >-</button>
-                {props.likes >= 0 ? <p className="likes">♥ {props.likes}</p> : <p className="likes">💔 {props.likes}</p>}
-                <button onClick={props.addLikes} className='likeBtn' >+</button>
+                <button onClick={props.removeLikes} className='likeBtn' > 👎 </button>
+                {props.likes >= 0 ? <p className="likes"> 💚 {props.likes}</p> : <p className="likes"> 💔 {props.likes}</p>}
+                <button onClick={props.addLikes} className='likeBtn' > 👍 </button>
             </div>
         </div>
     )

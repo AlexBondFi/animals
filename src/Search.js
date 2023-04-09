@@ -1,8 +1,9 @@
 import React from 'react';
 
 const Search = (props) => {
-    return (
+    return (<label> Search:
         <input onChange={props.searchHandler} />
+    </label>
     );
 };
 
