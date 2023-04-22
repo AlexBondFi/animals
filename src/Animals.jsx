@@ -2,17 +2,17 @@ import React from "react";
 import Cards from "./Cards";
 import Search from "./Search";
 
-const Animals = (props) => {
+const List = (props) => {
 
-    const searchFilter = props.data.filter(animal => {
-        return animal.name.includes(props.searchInput)
+    const searchFilter = props.data.filter(item => {
+        return item.name.includes(props.searchInput)
     })
     return (
         <div className="cards">
-            <h2>Animals</h2>
+            <h2>{props.title} {props.data.length}</h2>
             <Search searchHandler={props.searchHandler} />
             <div className="testName">
-                {searchFilter.map(item => <Cards
+                {searchFilter.map((item) => <Cards
                     key={item.name}
                     name={item.name}
                     likes={item.likes}
@@ -25,4 +25,4 @@ const Animals = (props) => {
     );
 };
 
-export default Animals;
+export default List;

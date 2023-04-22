@@ -1,40 +1,46 @@
-import './App.css';
-import Animals from './Animals';
-import Header from './Header';
-import { animals } from './animalsList';
 import React, { Component } from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import './App.css';
+import List from './Animals';
+import Header from './Header';
+import Home from './Home';
+import { animals, birds } from './animalsList';
+
 
 class App extends Component {
   state = {
     animals: animals,
-    anything: 'Livings',
+    birds: birds,
+    title: 'Livings',
     searchInput: ''
   }
 
   removeHandler = (name) => {
-    const updateArray = this.state.animals.filter(animal => animal.name !== name)
+    const updatedArray = this.state.animals.filter(animal => animal.name !== name)
     this.setState({
-      animals: updateArray
+      animals: updatedArray
     })
   }
 
-  likesHandler = (name, action) => {
-    this.setState((prevState) => { // prevState is not reserved word BUT it it used prevState for setState. Thats how it works
-      const updateArray = prevState.animals.map((animal) => {
-        if (animal.name === name) {
-          if (action === 'add') {
-            return { ...animal, likes: animal.likes + 1 }
-          } else {
-            return { ...animal, likes: animal.likes - 1 }
-          }
+  likesHandler = (name, action, list) => {
+    const updatedArray = this.state[list].map((item) => {
+      if (item.name === name) {
+        if (action === 'add') {
+          return { ...item, likes: item.likes + 1 }
         } else {
-          return animal
+          return { ...item, likes: item.likes - 1 }
         }
-      })
-      return {
-        animals: updateArray
+      } else {
+        return item
       }
     })
+
+    this.setState(
+      {
+        [list]: updatedArray
+      }
+    )
   }
 
   searchHandler = (e) => { // e - event
@@ -45,16 +51,30 @@ class App extends Component {
 
   render() {
     return (
+      <BrowserRouter>
       <div className='main'>
-        <Header anything={this.state.anything} />
-        <Animals
+        <Header data={this.state} />
+        <Routes>
+        <Route path="/" element={<Home />} />
+          <Route path="/animals" element={<List
+          title='animals'
           data={this.state.animals}
           likesHandler={this.likesHandler}
           removeHandler={this.removeHandler}
           searchHandler={this.searchHandler}
-          searchInput={this.state.searchInput} />
+          searchInput={this.state.searchInput} />}/>
+          <Route path="/birds" element={<List
+          title='birds'
+          data={this.state.birds}
+          likesHandler={this.likesHandler}
+          removeHandler={this.removeHandler}
+          searchHandler={this.searchHandler}
+          searchInput={this.state.searchInput} />}/>
+        
+          </Routes>
       </div>
-    )
+      </BrowserRouter>
+    );
   }
 
 
