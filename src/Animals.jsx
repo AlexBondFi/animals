@@ -16,10 +16,10 @@ const List = (props) => {
                     key={item.name}
                     name={item.name}
                     likes={item.likes}
-                    removeCard={() => props.removeHandler(item.name)}
+                    removeCard={() => props.removeHandler(item.name, props.title)}
                     // "removeCard={() => props.removeHandler(item.name)}" - we bind data to the method by '()=>' to send it up
-                    removeLikes={() => props.likesHandler(item.name, 'remove')}
-                    addLikes={() => props.likesHandler(item.name, 'add')} />)}
+                    removeLikes={() => props.likesHandler(item.name, 'remove', props.title)}
+                    addLikes={() => props.likesHandler(item.name, 'add', props.title)} />)}
             </div>
         </div>
     );

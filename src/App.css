@@ -1,6 +1,7 @@
-.App {
+* {
   margin: 0;
   padding: 0;
+  overscroll-behavior: none;
 }
 
 .cards {
@@ -32,4 +33,41 @@ input {
   margin: 1rem;
   border-radius: 5px;
   background-color: lightblue;
+}
+
+nav{
+  display: flex;
+  justify-content: center;
+}
+
+nav a{
+  margin: 1rem 2rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.grid{
+  display: flex;
+  justify-content: space-around;
+}
+
+.grid a{
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+}
+
+.home_animals{
+  width: 45vw;
+  height: 90vh;
+  background-image: url(dog1.jpeg);
+  background-size: cover;
+}
+
+.home_birds{
+  width: 45vw;
+  height: 90vh;
+  background-image: url(bird1.jpeg);
+  background-size: cover;
 }

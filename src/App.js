@@ -16,10 +16,10 @@ class App extends Component {
     searchInput: ''
   }
 
-  removeHandler = (name) => {
-    const updatedArray = this.state.animals.filter(animal => animal.name !== name)
+  removeHandler = (name, list) => {
+    const updatedArray = this.state[list].filter(item => item.name !== name)
     this.setState({
-      animals: updatedArray
+      [list]: updatedArray
     })
   }
 
